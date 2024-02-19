@@ -1,10 +1,8 @@
 package ru.drom.auto;
 
 
-import io.qameta.allure.Step;
 import org.apache.commons.collections4.BidiMap;
 import org.apache.commons.collections4.bidimap.TreeBidiMap;
-import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,9 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
 
 public class MainPage extends HeaderThrough{
     private WebDriver driver;
@@ -165,7 +160,7 @@ public class MainPage extends HeaderThrough{
         regionClick();
         brandSelectClick();
         boolean stop = false;
-        while (stop == false) {
+        while (!stop) {
             By options = By.xpath(".//div[@data-ftid = 'sales__filter_fid']//div[@style='height: 35px; transform: translateY("+ index.toString() +"px);']/div");
                 wait.until(ExpectedConditions.visibilityOfElementLocated(options));
                 scrollToElement(options);
